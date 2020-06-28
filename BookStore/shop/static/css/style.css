@@ -414,21 +414,20 @@ textarea.input {
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: #1E1F29;
+  text-align: right;
 }
 
 .header-links li {
   display: inline-block;
   margin-right: 15px;
   font-size: 12px;
+
 }
 
 .header-links li:last-child {
   margin-right: 0px;
 }
 
-.header-links li a {
-  color: #FFF;
-}
 
 .header-links li a:hover {
   color: #D10024;
@@ -446,28 +445,45 @@ textarea.input {
 #header {
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: #15161D;
+ 
 }
 
-.header-logo {
-  float: left;
-}
 
-.header-logo .logo img {
-  display: block;
-}
 
 /*----------------------------*\
 	Search
 \*----------------------------*/
 
-.header-search {
-  padding: 15px 0px;
+.header-search , .admin-links {
+  padding: 13px 0px;
 }
 
+.header-bottom{
+ background-color: linear-gradient(to right, #bf2a52 0%,#bf2a52 30%,#394873 70%,#394873 100%);
+ height: 2px;
+display: block;
+}
+
+body {
+  font-family: "Badr" !important;
+}
+body h3 {
+  font-family: "Badr" !important;
+}
+.footer-title {
+  color: #000000 !important;
+}
+.admin-links li{
+  font-size: 25px;
+  font-family: "Badr";
+}
 .header-search form {
   position: relative;
 }
+.tc{
+  color: #484848;
+}
+  
 
 .header-search form .input-select {
   margin-right: -4px;
@@ -475,24 +491,29 @@ textarea.input {
 }
 
 .header-search form .input {
-  width: calc(100% - 260px);
-  margin-right: -4px;
+  /* width: calc(100% - 260px); */
+  text-align: right;
+  direction: rtl;
+  font-size: 20px;
+  margin-left: -4px;
 }
 
 .header-search form .search-btn {
   height: 40px;
-  width: 100px;
+  /* width: 100px; */
   background: #D10024;
   color: #FFF;
   font-weight: 700;
   border: none;
-  border-radius: 0px 40px 40px 0px;
+  border-radius: 40px 0px 0px 40px;
 }
 
 /*----------------------------*\
 	Cart
 \*----------------------------*/
-
+.acc{
+display: inline-flex;
+}
 .header-ctn {
   float: right;
   padding: 15px 0px;
@@ -2001,21 +2022,17 @@ textarea.input {
 	11 -> FOOTER
 ===========================================================*/
 
-#footer {
-  background: #15161D;
-  color: #B9BABC;
-}
 
 #bottom-footer {
-  background: #1E1F29;
+  background: rgb(152, 152, 153);
 }
 
 .footer {
-  margin: 30px 0px;
+  margin: 44px 0px;
 }
 
 .footer .footer-title {
-  color: #FFF;
+
   text-transform: uppercase;
   font-size: 18px;
   margin: 0px 0px 30px;
@@ -2026,7 +2043,7 @@ textarea.input {
 }
 
 .footer-links li a {
-  color: #B9BABC;
+  color: rgb(91, 91, 92);
 }
 
 .footer-links li i {
@@ -2143,15 +2160,10 @@ textarea.input {
   }
   #top-header .header-links.pull-right {
     float: none !important;
-    margin-top: 5px;
+    margin-top: 10px;
   }
-  .header-logo {
-    float: none;
-    text-align: center;
-  }
-  .header-logo .logo {
-    display: inline-block;
-  }
+ 
+  
   #product-imgs {
     margin-bottom: 60px;
     margin-top: 15px;
