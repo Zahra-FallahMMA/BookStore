@@ -1,18 +1,20 @@
 {% load static %}
+
 <html lang="en">
     <head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 		<title>
-            کتاب فروشی آنلاین دانشگاه گیلان
+           کتاب فروشی آنلاین دانشگاه گیلان
         </title>
 
 		<!-- Google font -->
 		<link href="{% static 'https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet' %}">
-
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<!-- Bootstrap -->
 		<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
 
@@ -25,10 +27,10 @@
 
 		<!-- Font Awesome Icon -->
 		<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -38,78 +40,69 @@
 
     </head>
 <body>
-<br>
-<br>
     <!-- HEADER -->
-        <!-- navbar -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div>
-            <ul class="collapse navbar-collapse" id="myNavbar">
-                <div class="navbar-header">
-                   <!-- <img src="logo.png" style="height:50px">-->
-                </div>
-                <ul class="nav navbar-nav"  style="float:right;font-size: 20px;">
-                    <li><a href="#section6">ارتباط با ما </a></li>
-                    <li><a href="{% url 'shop:index' %}">فروشگاه کتاب دانشگاه گیلان </a></li>
-                    <li><a href="#section1"><span class="glyphicon glyphicon-home"></span></a></li>
+    <header>
+			<!-- TOP HEADER -->
+			<div id="top-header">
+				<div class="container">
 
-                </ul>
-
-                <ul class="nav navbar-nav " style="float: left; font-size: 20px; padding-top: 8px">
-                    <li><button type="button" class="btn-link" style="text-decoration: none;color: white;font-size: 20px;" >
+                   <div class="row">
+                     <div class="col-md-4 clearfix pull-left">
+					  <ul class="headerlinks" style="padding-top: 10px;font-size: 22px;">
+                       {% if user.is_authenticated %}
+                         <li><a href="/accounts/logout/" style="color:white;"><i class="fa fa-sign-out"></i> خروج</a></li>
+                        {% else %}
+                         <li><a href="/accounts/login/" style="color:white;"><i class="fa fa-sign-in"></i> ورود</a></li>
+                        {% endif %}
+					 </ul>
+                     </div>
+                          <div class="col-md-4 clear-fix pull-left" style="color:white;padding-top: 10px;font-size: 22px;" >
+							<div class="headerlinks" style="color:white;">
+                                <!-- Cart -->
 								{% with total_items=cart|length %}
                                 {% if cart|length > 0 %}
                                     سبد شما شامل :
-                                    <a href="{% url 'cart:cart_detail' %}"  style="color: white;font-size: 20px;" >
-                                         {{ total_items }} محصول   است
+                                    <a href="{% url 'cart:cart_detail' %}" style="color:white;font-size: 22px;">
+                                          {{ total_items }}           محصول است
                                     </a>
                                 {% else %}
                                     سبد خرید شما خالی است
                                 {% endif %}
                                 {% endwith %}
-                    </button></li>
-                </ul>
-            </ul>
+								<!-- /Cart -->
+							</div>
+						</div>
+
+                   <div class="col-md-4 clearfix pull-left" style="color: white;">
+                       <div class="header-links" style="color: white; direction:rtl;font-size:40px;padding-top: 14px;padding-bottom:10px;">
+                           فروشگاه کتاب دانشگاه گیلان
+                       </div>
+
+                   </div>
+
+				</div>
+			</div>
             </div>
-        </div>
-    </div>
-    </div>
-</nav>
+			<!-- /TOP HEADER -->
 
+			<!-- MAIN HEADER -->
 
+			<!-- /MAIN HEADER -->
+		</header>
+    <!-- /HEADER -->
 
     {% block content %}
 
     {% endblock %}
 
-<br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-     <!-- FOOTER -->
+    <!-- FOOTER -->
     <footer id="footer">
 			<!-- top footer -->
 			<div class="section">
 				<!-- container -->
 				<div class="container">
 					<!-- row -->
-					<div class="row" id="section6">
+					<div class="row">
 						<div class="col-md-4 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">درباره ی ما</h3>
@@ -133,7 +126,9 @@
 							<div class="footer">
 								<h3 class="footer-title">سایر خدمات</h3>
 								<ul class="footer-links">
+									<li><a href="/accounts/login/"><i class="fa fa-sign-in"></i>ورود</a></li>
 									<li><a href="/cart/"><i class="fa fa-shopping-basket"></i>سبد خرید</a></li>
+                                    <li><a href="/accounts/logout/"><i class="fa fa-sign-out"></i>خروج</a></li>
 								</ul>
 							</div>
 						</div>
@@ -162,30 +157,32 @@
     <script src="{% static 'js/nouislider.min.js' %}"></script>
     <script src="{% static 'js/jquery.zoom.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-<script>
+<script defer>
 
-    $(document).ready(function () {
+		$(document).ready(function () {
 
-        ConvertNumberToPersion();
-    });
+			ConvertNumberToPersion();
+		});
 
-    function ConvertNumberToPersion() {
-        persian = { 0: '۰', 1: '۱', 2: '۲', 3: '۳', 4: '۴', 5: '۵', 6: '۶', 7: '۷', 8: '۸', 9: '۹', 'product count':'محصول' };
-        function traverse(el) {
-            if (el.nodeType == 3) {
-                var list = el.data.match(/[0-9]/g);
-                if (list != null && list.length != 0) {
-                    for (var i = 0; i < list.length; i++)
-                        el.data = el.data.replace(list[i], persian[list[i]]);
-                }
-            }
-            for (var i = 0; i < el.childNodes.length; i++) {
-                traverse(el.childNodes[i]);
-            }
-        }
-        traverse(document.body);
-    }
+		function ConvertNumberToPersion() {
+			persian = { 0: '۰', 1: '۱', 2: '۲', 3: '۳', 4: '۴', 5: '۵', 6: '۶', 7: '۷', 8: '۸', 9: '۹' };
+			function traverse(el) {
+				if (el.nodeType == 3) {
+					var list = el.data.match(/[0-9]/g);
+					if (list != null && list.length != 0) {
+						for (var i = 0; i < list.length; i++)
+							el.data = el.data.replace(list[i], persian[list[i]]);
+					}
+				}
+				for (var i = 0; i < el.childNodes.length; i++) {
+					traverse(el.childNodes[i]);
+				}
+			}
+			traverse(document.body);
+		}</script>
+		<script>
+			document.body.innerHTML = document.body.innerHTML.replace('Product count:',' تعداد محصول: '  ) ;
 
-</script>
+	</script>
 </body>
 </html>
