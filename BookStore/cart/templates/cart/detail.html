@@ -1,58 +1,53 @@
-{% extends "base.html" %}
+{% extends "base_with_login.html" %}
 {% load static %}
-
-{% block title  %}
-    Shopping CART
-{% endblock %}
-
 {% block content %}
 
-    <h1>Your Shopping CART</h1>
-    <table class="cart">
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Product</th>
-                <th>Count</th>
-                <th>Remove</th>
-                <th>Unit price</th>
-                <th>price</th>
-            </tr>
-        </thead>
-        <tbody>
+<body>
+<div style="width:50%; margin-left:10%;margin-top:3%; margin-bottom:10%;" >
+        <h1 style="margin-left:5%;padding:1%;color:red;font-size:40px; "  >سبد خرید شما</h1>
+    <table class="table" >
             {% for item in cart %}
                 {% with product=item.product %}
                     <tr>
-                        <td>
+                        <div class="col-sm-1">
+                        <td style="width:1%;height:5%;">
                             <a href="{{ product.get_absolute_url }}">
-                                <img src="{{ product.image.url }}">
+                                <img class="img-rounded" width="90" height="80" src="{{ product.image.url }}">
                             </a>
                         </td>
-                        <td>{{ product.name }}</td>
-                        <td>
-                            <form action="{% url 'cart:cart_add' product.id %}" method="post">
+
+                        <td style="width:3%;height:3%;padding-top:3%;font-size:20px ">{{ product.name }}</td>
+
+
+                        <td style="width:7%;height:3%; ">
+                            <form  action="{% url 'cart:cart_add' product.id %}" method="post">
                                 {{ item.update_product_count_form.product_count }}
                                 {{ item.update_product_count_form.update }}
                                 {% csrf_token %}
-                                <input type="submit" value="Update">
-                            </form>
-                        </td>
-                        <td><a href="{% url 'cart:cart_remove' product.id %}">Remove</a></td>
-                        <td class="num">${{ item.price }}</td>
-                        <td class="num">${{ item.total_price }}</td>
+                                <input style="margin-left:4%;" class="btn btn-primary" type="submit" value="به روز رسانی">
+                                <button style="margin:4%;" type="button" class="btn btn-primary">
+                                <a style="color:white;" href="{% url 'cart:cart_remove' product.id %}">حذف</a></button>
+                              </form>
+                        </td></div>
+                        <td style="width:2%;height:3%;margin-top:10%;font-size:30px" class="num">تومان{{ item.price }}</td>
+
+                        <td style="width:2%;height:3%;margin-top:10%;font-size:30px"  class="num">تومان{{ item.total_price }}</td>
                     </tr>
                 {% endwith %}
             {% endfor %}
-            <tr class="total">
-                <td>Total</td>
-                <td colspan="4"></td>
-                <td class="num">${{ cart.get_total_price }}</td>
+  <tr >
+                <td style="font-size:30px;padding-left:5%;">مجموع</td>
+        <td style="direction: rtl;font-size:30px;">{{ cart.get_total_price }}تومان</td>
+                <td colspan="2"></td>
+
             </tr>
-        </tbody>
+
     </table>
-    <p class="text-right">
-        <a href="{% url 'shop:store' %}" class="button light">Continue shopping</a>
-        <a href="{% url 'shop:checkout' %}" class="button light">Checkout</a>
-    </p>
+        <button style="margin-right:1%;" type="button" class="btn btn-primary"><a style="color:white;" href="{% url 'shop:index' %}" >ادامه ی خرید</a></button>
+        <button type="button" class="btn btn-primary"><a style="color:white;"  href="{% url 'shop:checkout' %}" >لیست خرید</a></button>
+          </div>
+        </div>
+
+</body>
 {% endblock %}
 

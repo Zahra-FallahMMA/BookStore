@@ -1,23 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'base_with_login.html' %}
 {% load static %}
-
-{% block title %} Order Detail {% endblock %}
 {% block content %}
-		<!-- BREADCRUMB -->
-		<div id="breadcrumb" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12">
-						<h3 class="breadcrumb-header">Order Detail</h3>
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /BREADCRUMB -->
+
 
 		<!-- SECTION -->
 		<div class="section">
@@ -28,14 +12,12 @@
 					<!-- Order Details -->
 					<div class="col-md-12 order-details">
 						<div class="section-title text-center">
-							<h3 class="title">Thank you</h3>
+							<h3 class="title" style="font-size:60px;">از خرید شما متشکریم</h3>
 						</div>
 						<div class="order-summary">
-							<p>Your order number: {{ order.id }}</p>
+							<p style="font-size: x-large;direction: rtl;"> شماره سفارش شما:{{ order.id }}</p>
 						</div>
-                        <a href="{% url 'shop:to_bank' order.id %}" class="primary-btn order-submit">Online Payment</a>
-
-
+                        <a href="{% url 'shop:to_bank' order.id %}" class="primary-btn order-submit" style="font-size: x-large">پرداخت آنلاین</a>
 					</div>
 					<!-- /Order Details -->
 				</div>

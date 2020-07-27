@@ -3,22 +3,23 @@
 
 {% block title %} Login {% endblock %}
 {% block content %}
-    <div class="container">
+    <div class="container" id="login_container">
         {% if next %}
-            <form action="/login/?next={{next}}" method="post" >
+            <form dir="rtl" style="font-size: 25px;" action="/login/?next={{next}}" method="post" >
         {%else%}
             <form action="/login/" method="post" >
         {% endif %}
             <p>
-                <label>Username:</label>
-                <input type="text" name="username">
+                <label>نام کاربری:</label>
+                <input type="text" class="form-control" name="username">
             </p>
             <p>
-                <label>Password:</label>
-                <input type="password" name="password">
+                <label>رمز:</label>
+                <input type="password"  class="form-control" name="password">
             </p>
             {% csrf_token %}
-            <input type="submit" value="Login">
+            <input style="font-size: 15px;" type="submit" class="btn btn-primary" value="ورود">
         </form>
+            </form>
     </div>
 {% endblock %}
