@@ -1,0 +1,8 @@
+
+*.xml
+*.pyc
+/media
+/media/
+.idea/workspace.xml
+.idea/workspace.xml
+*.xml

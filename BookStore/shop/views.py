@@ -8,12 +8,10 @@ from decimal import Decimal
 from zeep import Client
 
 def index(request):
-    product_list = models.Product.objects.all()[:5]
-    return render(request, 'index.html', {'product_list': product_list})
-
-
-def store(request):
-    return render(request, 'store.html')
+    product_list = models.Product.objects.all()[0:5]
+    product_list2 = models.Product.objects.all()[5:10]
+    product_list3 = models.Product.objects.all()[10:]
+    return render(request, 'index.html', {'product_list': product_list, 'product_list2': product_list2, 'product_list3': product_list3})
 
 
 def product(request, pk):
@@ -40,7 +38,7 @@ def checkout(request):
     return render(request, 'checkout.html', {'cart': cart})
 
 
-merchant = ''
+merchant = '******-****-****-****-******'
 client = Client('https://www.zarinpal.com/pg/services/WebGate/wsdl')
 
 

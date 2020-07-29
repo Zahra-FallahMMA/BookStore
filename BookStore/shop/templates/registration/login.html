@@ -5,7 +5,7 @@
 {% block content %}
     <div class="container" id="login_container">
         {% if next %}
-            <form dir="rtl" style="font-size: 25px;" action="/login/?next={{next}}" method="post" >
+            <form action="/login/?next={{next}}" method="post" >
         {%else%}
             <form action="/login/" method="post" >
         {% endif %}
@@ -15,10 +15,10 @@
             </p>
             <p>
                 <label>رمز:</label>
-                <input type="password"  class="form-control" name="password">
+                <input type="password" class="form-control" name="password">
             </p>
             {% csrf_token %}
-            <input style="font-size: 15px;" type="submit" class="btn btn-primary" value="ورود">
+            <input type="submit" class="btn btn-primary" value="Login">
         </form>
             </form>
     </div>

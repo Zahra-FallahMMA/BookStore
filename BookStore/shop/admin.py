@@ -3,7 +3,7 @@ from . import models
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'create_time',)
+    list_display = ('name', 'create_time', )
 
 
 class OrderAdmin(admin.ModelAdmin):
@@ -11,11 +11,11 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 class OrderItemAdmin(admin.ModelAdmin):
-    list_display = ('id', 'order', 'product')
+    list_display = ('id', 'order', 'product',)
 
 
 class TransactionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'invoice', 'amount', 'transaction_date', 'status')
+    list_display = ('id', 'invoice', 'amount', 'transaction_date', 'status',)
 
 
 class InvoiceAdmin(admin.ModelAdmin):
@@ -25,7 +25,5 @@ class InvoiceAdmin(admin.ModelAdmin):
 admin.site.register(models.Product, ProductAdmin)
 admin.site.register(models.Order, OrderAdmin)
 admin.site.register(models.OrderItem, OrderItemAdmin)
-admin.site.register(models.Invoice, InvoiceAdmin)
 admin.site.register(models.Transaction, TransactionAdmin)
-
-
+admin.site.register(models.Invoice, InvoiceAdmin)

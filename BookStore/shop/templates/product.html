@@ -1,7 +1,11 @@
 {% extends 'base_with_login.html' %}
 {%  load static %}
+
 {% block content %}
 
+
+
+        </br>
 		<!-- SECTION -->
 		<div class="section">
 			<!-- container -->
@@ -32,21 +36,19 @@
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 dir="rtl" class="product-name">{{ product_detail.name }}</h2>
-
-							<p style="font-size: large;font-family: 'B Nazanin';direction: rtl"> {{ product_detail.description }}</p>
-
-	                           <div>
-								<h3  class="product-price" style="font-size:40px;direction: rtl;color: green; margin-bottom:10%;margin-top:5%">{{ product_detail.price }} تومان</h3>
-
+							<h2  style="font-family: IranNastaliq ; direction: rtl" class="product-name">{{ product_detail.name }}</h2>
+                            <p style="font-size: large;font-family: 'B Nazanin';direction: rtl"> {{ product_detail.description }}</p>
+							<div>
+								<h3 class="product-price" style="font-family:'IranNastaliq'; direction: rtl; color: green;">{{ product_detail.price }} تومان </h3>
 							</div>
-							<div style="font-size:20px;" class="add-to-cart">
-								<form style="margin-left:20px;" dir="rtl"  action="{%  url 'cart:cart_add' product_detail.id %}" method="post">
+
+
+
+							<div class="add-to-cart" style="direction: rtl">
+								<form action="{%  url 'cart:cart_add' product_detail.id %}" method="post">
                                     {{ cart_add_product_form }}
                                     {% csrf_token %}
-                                    <input style="margin-right:5px; width:30%; font-size:20px;" class="primaryAction btn btn-primary " type="submit" value="اضافه کردن به سبد خرید">
-
-
+                                    <input class="btn btn-primary" type="submit" value="اضافه کردن به سبد خرید">
                                 </form>
 							</div>
 
@@ -54,7 +56,10 @@
 					</div>
 					<!-- /Product details -->
 
-
+					<!-- Product tab -->
+					<div class="col-md-12">
+					</div>
+					<!-- /product tab -->
 				</div>
 				<!-- /row -->
 			</div>

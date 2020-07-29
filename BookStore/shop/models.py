@@ -16,7 +16,7 @@ class Product(models.Model):
     class Meta:
         ordering = ('create_time',)
 
-    def str(self):
+    def __str__(self):
         return self.name
 
     def get_absolute_url(self):
@@ -27,7 +27,7 @@ class Order(models.Model):
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
     order_date = models.DateTimeField(auto_now_add=True)
 
-    def str(self):
+    def __str__(self):
         return str(self.id)
 
 
@@ -38,7 +38,7 @@ class OrderItem(models.Model):
     product_count = models.PositiveIntegerField()
     product_cost = models.DecimalField(max_digits=10, decimal_places=0)
 
-    def str(self):
+    def __str__(self):
         return str(self.id)
 
 
@@ -47,7 +47,7 @@ class Invoice(models.Model):
     invoice_date = models.DateTimeField(auto_now_add=True)
     authority = models.CharField(max_length=200, blank=True, null=True)
 
-    def str(self):
+    def __str__(self):
         return str(self.id)
 
 
@@ -62,5 +62,5 @@ class Transaction(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=0)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
 
-    def str(self):
+    def __str__(self):
         return str(self.id)

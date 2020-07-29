@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -117,9 +118,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fa-ir'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tehran'
 
 USE_I18N = True
 
@@ -158,8 +159,8 @@ SITE_ID = 1
 #         # (``socialaccount`` app) containing the required client
 #         # credentials, or list them here:
 #         'APP': {
-#             'client_id': '430821148993-0ohc9naai54fqj8bsjq45j9uut2hjaqb.apps.googleusercontent.com',
-#             'secret': '0nd--VQWRnhSqhTIkXeTq0xh',
+#             'client_id': '************************************************',
+#             'secret': '*******************',
 #             'key': ''
 #         }
 #     }
@@ -170,4 +171,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'guilanuni.bookstore@gmail.com'
-EMAIL_HOST_PASSWORD = 'gilanunibookstore1'
+EMAIL_HOST_PASSWORD = '******'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

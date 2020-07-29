@@ -12,7 +12,7 @@
 					<!-- Order Details -->
 					<div class="col-md-12 order-details">
 						<div class="section-title text-center">
-							<h3 class="title">سفارش شما</h3>
+							<h3 style="font-family: IranNastaliq" class="title">سفارش شما</h3>
 						</div>
 						<div class="order-summary">
 							<div class="order-col">
@@ -25,17 +25,19 @@
                                 {% for item in cart %}
                                     <div class="order-col">
                                         <div style="font-size: large" >{{ item.product.name }}</div>
-                                        <div style="font-size: large" ><h4 style="direction: rtl;">{{ item.product_count }}عدد </h4></div>
-                                        <div><h4 class="product-price" style="direction: rtl">{{ item.total_price }}  تومان</h4></div>
+                                        <div style="font-size: large" ><h4 style="direction: rtl;font-family: IranNastaliq">{{ item.product_count }} عدد</h4></div>
+                                        <div><h4 class="product-price" style="direction: rtl; font-family: IranNastaliq">{{ item.total_price }}  تومان</h4></div>
                                     </div>
                                 {% endfor %}
 							</div>
 
 							<div class="order-col">
 								<div><strong style="font-size: x-large">مجموع</strong></div>
-                              <div>  <h4 class="product-price" style="direction: rtl;font-size: medium"> {{ cart.get_total_price }} تومان</h4></div>
+                              <div>  <h4 class="product-price" style="direction: rtl;font-size: medium; font-family: IranNastaliq"> {{ cart.get_total_price }} تومان</h4></div>
 							</div>
 						</div>
+
+						
                         <form action="." method="post">
                             {% csrf_token %}
                             <input style="font-size: large" class="primary-btn order-submit" type="submit" value="ثبت سفارش">
